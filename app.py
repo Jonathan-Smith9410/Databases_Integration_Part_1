@@ -22,3 +22,8 @@ album_repository = AlbumRepository(connection)
 albums = album_repository.all()
 for album in albums:
     print(album)
+
+# Retrieve the album with id=1 and print it
+album_repository = AlbumRepository(connection)
+album = album_repository.find(1)
+print(album)

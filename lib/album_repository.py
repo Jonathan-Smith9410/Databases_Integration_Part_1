@@ -16,3 +16,10 @@ class AlbumRepository:
             item = Album(row["id"], row["title"], row["release_year"], row["artist_id"])
             albums.append(item)
         return albums
+
+#   Find method
+
+    def find(self, id):
+        rows = self._connection.execute('SELECT * from albums WHERE id = %s', [id])
+        row = rows[0]
+        return Album(row["id"], row["title"], row["release_year"], row["artist_id"])

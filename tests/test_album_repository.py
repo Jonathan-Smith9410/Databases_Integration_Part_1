@@ -18,3 +18,13 @@ Album(11, "Fodder on My Wings", 1982, 4),
 Album(12, "Ring Ring", 1973, 2),
     ]
 
+
+"""
+When we call Album Repository
+We get a single record returned
+"""
+def test_find(db_connection):
+    db_connection.seed("seeds/music_library.sql")
+    repository = AlbumRepository(db_connection)
+    album = repository.find(1)
+    assert album == Album(1, "Doolittle", 1989, 1)
